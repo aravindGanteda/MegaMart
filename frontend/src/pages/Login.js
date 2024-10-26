@@ -46,7 +46,7 @@ function Login() {
       });
 
       const dataResponse = await res.json();
-      if (dataResponse.succuss) {
+      if (dataResponse.success) {
         toast.success(dataResponse.message);
         navigate("/");
         generalContext.fetchUserDetails();
