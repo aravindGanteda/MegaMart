@@ -4,14 +4,14 @@ const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const router = require("./routes");
 const cookieParser = require('cookie-parser')
-
+const morgan = require("morgan");
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
 app.use(cookieParser())
-app.use(morgan("combined")); // Use "combined" for detailed logs or "dev" for concise output
+app.use(morgan("dev")); // Use "combined" for detailed logs or "dev" for concise output
 
 
 app.use(express.urlencoded({ limit: "5mb", extended: true }));
