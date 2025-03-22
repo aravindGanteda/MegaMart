@@ -1,16 +1,23 @@
 import { createBrowserRouter } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import App from "../App";
+
+// Lazy load pages
 import Home from "../pages/Home";
-import Login from "../pages/Login";
-import ForgotPassword from "../pages/ForgotPassword";
-import SignUp from "../pages/SignUp";
-import AdminPannel from "../pages/AdminPannel";
-import AllUsers from "../pages/AllUsers";
-import AllProducts from "../pages/AllProducts";
-import CategoryProduct from "../pages/CategoryProduct";
-import ProductDetail from "../pages/ProductDetail";
-import Cart from "../pages/Cart";
-import SearchProduct from "../pages/SearchProduct";
+
+const Login = lazy(() => import("../pages/Login"));
+const ForgotPassword = lazy(() => import("../pages/ForgotPassword"));
+const SignUp = lazy(() => import("../pages/SignUp"));
+const AdminPannel = lazy(() => import("../pages/AdminPannel"));
+const AllUsers = lazy(() => import("../pages/AllUsers"));
+const AllProducts = lazy(() => import("../pages/AllProducts"));
+const CategoryProduct = lazy(() => import("../pages/CategoryProduct"));
+const ProductDetail = lazy(() => import("../pages/ProductDetail"));
+const Cart = lazy(() => import("../pages/Cart"));
+const SearchProduct = lazy(() => import("../pages/SearchProduct"));
+
+// Loading fallback component
+const Loader = () => <div>Loading...</div>;
 
 const router = createBrowserRouter([
   {
@@ -23,45 +30,85 @@ const router = createBrowserRouter([
       },
       {
         path: "login",
-        element: <Login />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Login />
+          </Suspense>
+        ),
       },
       {
         path: "forgot-password",
-        element: <ForgotPassword />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <ForgotPassword />
+          </Suspense>
+        ),
       },
       {
         path: "sign-up",
-        element: <SignUp />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <SignUp />
+          </Suspense>
+        ),
       },
       {
         path: "product-category",
-        element: <CategoryProduct />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <CategoryProduct />
+          </Suspense>
+        ),
       },
       {
         path: "admin-panel",
-        element: <AdminPannel />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <AdminPannel />
+          </Suspense>
+        ),
         children: [
           {
             path: "all-users",
-            element: <AllUsers />,
+            element: (
+              <Suspense fallback={<Loader />}>
+                <AllUsers />
+              </Suspense>
+            ),
           },
           {
             path: "all-products",
-            element: <AllProducts />,
+            element: (
+              <Suspense fallback={<Loader />}>
+                <AllProducts />
+              </Suspense>
+            ),
           },
         ],
       },
       {
         path: "product/:id",
-        element: <ProductDetail />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <ProductDetail />
+          </Suspense>
+        ),
       },
       {
         path: "cart",
-        element: <Cart />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Cart />
+          </Suspense>
+        ),
       },
       {
         path: "search",
-        element: <SearchProduct />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <SearchProduct />
+          </Suspense>
+        ),
       },
     ],
   },

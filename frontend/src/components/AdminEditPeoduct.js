@@ -220,6 +220,7 @@ const AdminEditProduct = (props) => {
                         width={80}
                         height={80}
                         key={idx}
+                        loading="lazy"
                         alt={item}
                         onClick={() => {
                           setFullScreenImage(item);

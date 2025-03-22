@@ -1,4 +1,4 @@
-const backendDomain = "https://megamartapi.onrender.com";
+const backendDomain = "https://megamartapi.vercel.app";
 
 const SummaryApi = {
   signUp: {
