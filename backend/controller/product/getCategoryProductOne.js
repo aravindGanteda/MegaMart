@@ -2,9 +2,6 @@ const productModel = require("../../models/productModel");
 
 const getCategoryProductController = async (req, res) => {
   try {
-    const productCategory = await productModel.distinct("category");
-    // console.log(productCategory);
-
     const productByCategory = [
       {
         _id: "66f44e498c37f7b1dd709614",
@@ -122,13 +119,6 @@ const getCategoryProductController = async (req, res) => {
       },
     ];
 
-    for (const category of productCategory) {
-      // console.log(category);
-      const product = await productModel.findOne({ category });
-      if (product) {
-        productByCategory.push(product);
-      }
-    }
     res.status(200).json({
       message: "categorie Product ...😉",
       data: productByCategory,
