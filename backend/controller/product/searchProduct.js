@@ -4,19 +4,19 @@ const searchProduct = async (req, res) => {
   try {
     const query = req.query.q;
 
-    // Create case-insensitive and global regular expression
-    const regex = new RegExp(query, "i", "g"); // 'i' flag for case-insensitive search
-
-    const products = await productModel.find({
-      $or: [
-        {
-          productName: regex,
+    const products = await productModel.aggregate([
+      {
+        $search: {
+          index: "search_index_products",
+          text: {
+            query: query,
+            path: {
+              wildcard: "*",
+            },
+          },
         },
-        {
-          category: regex,
-        },
-      ],
-    });
+      },
+    ]);
 
     res.json({
       success: true,
