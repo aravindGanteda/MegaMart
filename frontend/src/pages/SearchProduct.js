@@ -45,7 +45,12 @@ const SearchProduct = () => {
   };
 
   useEffect(() => {
-    fetchProduct();
+    const timeoutId = setTimeout(() => {
+      fetchProduct();
+    }, 300);
+    return () => {
+      clearTimeout(timeoutId);
+    };
   }, [q]);
 
   return (
@@ -56,7 +61,9 @@ const SearchProduct = () => {
           <RxReload />
         </p>
       )}
-      <p className="font-semibold text-xl mb-3">Search Results : {data?.length}</p>
+      <p className="font-semibold text-xl mb-3">
+        Search Results : {data?.length}
+      </p>
       {data.length === 0 && !loading && (
         <div>
           <img
@@ -71,7 +78,7 @@ const SearchProduct = () => {
         </div>
       )}
 
-      <VerticalCard loading={loading} data = {data} />
+      <VerticalCard loading={loading} data={data} />
     </div>
   );
 };

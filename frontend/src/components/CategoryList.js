@@ -48,11 +48,11 @@ const CategoryList = () => {
                 ></div>
               );
             })
-          : categoryProduct.map((product, idx) => {
+          : categoryProduct.map((product) => {
               return (
                 <Link
                   to={"/product-category?category=" + product.category}
-                  key={product.category + idx}
+                  key={product._id}
                   className="p-2 cursor-pointer"
                 >
                   <div
