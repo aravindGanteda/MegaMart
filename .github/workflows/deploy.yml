@@ -48,19 +48,16 @@ jobs:
       run: |
         # Set CI=false to avoid treating warnings as errors
         export CI=false
+        # Set homepage for GitHub Pages deployment
+        export PUBLIC_URL=https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
         npm run build
 
-    - name: Debug - List build output
+    - name: Fix routing for GitHub Pages
+      working-directory: ./frontend/build
       run: |
-        echo "Checking frontend directory structure:"
-        ls -la ./frontend/
-        echo "Checking if build folder exists:"
-        if [ -d "./frontend/build" ]; then
-          echo "✅ Build folder exists"
-          ls -la ./frontend/build/
-        else
-          echo "❌ Build folder not found"
-        fi
+        # Copy index.html to 404.html for client-side routing
+        cp index.html 404.html
+        echo "Created 404.html for client-side routing"
 
     - name: Setup Pages
       uses: actions/configure-pages@v4
