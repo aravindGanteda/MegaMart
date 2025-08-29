@@ -50,14 +50,26 @@ jobs:
         export CI=false
         npm run build
 
+    - name: Debug - List build output
+      run: |
+        echo "Checking frontend directory structure:"
+        ls -la ./frontend/
+        echo "Checking if build folder exists:"
+        if [ -d "./frontend/build" ]; then
+          echo "✅ Build folder exists"
+          ls -la ./frontend/build/
+        else
+          echo "❌ Build folder not found"
+        fi
+
     - name: Setup Pages
       uses: actions/configure-pages@v4
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        # Upload dist folder from frontend
-        path: './frontend/dist'
+        # Upload build folder from frontend (Create React App default)
+        path: './frontend/build'
 
   # Deployment job
   deploy:
