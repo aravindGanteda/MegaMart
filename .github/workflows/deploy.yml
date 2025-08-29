@@ -53,6 +53,9 @@ jobs:
           # Disable treating warnings as errors in CI
           CI: false
           
+      - name: Add 404.html for SPA routing
+        run: cp ./frontend/build/index.html ./frontend/build/404.html
+          
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
