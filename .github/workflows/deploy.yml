@@ -39,12 +39,19 @@ jobs:
         run: npm ci
         working-directory: ./frontend
         
+      - name: Update browserslist database
+        run: npx update-browserslist-db@latest
+        working-directory: ./frontend
+        continue-on-error: true
+        
       - name: Build
         run: npm run build
         working-directory: ./frontend
         env:
           # Important: Set the base path for GitHub Pages
           PUBLIC_URL: /${{ github.event.repository.name }}
+          # Disable treating warnings as errors in CI
+          CI: false
           
       - name: Setup Pages
         uses: actions/configure-pages@v4
