@@ -1,9 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
-import Logo from "./Logo";
-import { IoEllipseSharp, IoMoon, IoSearchSharp } from "react-icons/io5";
+import React, { useContext, useState } from "react";
+import { IoMoon, IoSearchSharp } from "react-icons/io5";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
-import { GiMoonOrbit } from "react-icons/gi";
 import { MdSunny } from "react-icons/md";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -63,7 +61,7 @@ function Header() {
   return (
     <div
       className={`h-16 shadow-md ${
-        context.theme == "dark"
+        context.theme === "dark"
           ? " bg-[#1d1d1d] text-white"
           : " text-black bg-white"
       } fixed w-full z-40`}
@@ -77,15 +75,20 @@ function Header() {
               playSound();
             }}
           >
-            <img src = "/logo.png"  width={90} height={40} className={`${ context.theme == "dark" ? " invert":""} `} alt = "MEGA MART LOGO"/>
-            
-            {/* <Logo w={90} h={50} /> */}
+            <img
+              src="/logo.png"
+              width={90}
+              height={40}
+              className={`${context.theme === "dark" ? " invert" : ""} `}
+              alt="MEGA MART LOGO"
+            />
 
+            {/* <Logo w={90} h={50} /> */}
           </Link>
         </div>
         <div
           className={`hidden lg:flex items-center transition-all duration-1000  w-full  justify-between max-w-sm  border  rounded-full focus-within:shadow pl-2 ${
-            context.theme == "dark"
+            context.theme === "dark"
               ? " bg-[#1d1d1d] text-white border-slate-700"
               : " text-black bg-white"
           }`}
@@ -126,7 +129,7 @@ function Header() {
             {menuDisplay && (
               <div
                 className={`absolute hidden md:block ${
-                  context.theme == "dark"
+                  context.theme === "dark"
                     ? " bg-[#1d1d1d] text-white border-slate-700 hover:bg-slate-500"
                     : " text-black bg-white hover:bg-slate-200"
                 } bottom-0 top-11 h-fit p-2 shadow-lg rounded`}
@@ -139,7 +142,7 @@ function Header() {
                       }}
                       to={"admin-panel/all-products"}
                       className={` whitespace-nowrap  ${
-                        context.theme == "dark"
+                        context.theme === "dark"
                           ? "hover:bg-slate-500"
                           : "hover:bg-slate-200"
                       } p-2`}
@@ -194,7 +197,7 @@ function Header() {
             className="hidden sm:block rounded-full text-2xl cursor-pointer relative  "
             onClick={() => {
               context.setTheme((prev) => {
-                if (prev == "light") {
+                if (prev === "light") {
                   return "dark";
                 }
                 return "light";
@@ -205,7 +208,7 @@ function Header() {
             {/* Moon icon */}
             <div
               className={`absolute top-[-10px] left-0 transition-all duration-500 transform ${
-                context.theme != "light"
+                context.theme !== "light"
                   ? "opacity-100 rotate-0"
                   : "opacity-0 rotate-45"
               }`}
@@ -216,7 +219,7 @@ function Header() {
             {/* Sunny icon */}
             <div
               className={`absolute top-[-10px] left-0 transition-all duration-300 transform ${
-                context.theme == "dark"
+                context.theme === "dark"
                   ? "opacity-0 rotate-45"
                   : "opacity-100 rotate-0"
               }`}

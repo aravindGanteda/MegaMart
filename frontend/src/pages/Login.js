@@ -4,7 +4,7 @@ import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import SummaryApi from "../common";
 import toast from "react-hot-toast";
-import playSound from "../common/playSound"; 
+import playSound from "../common/playSound";
 import Context from "../context";
 
 function Login() {
@@ -66,7 +66,7 @@ function Login() {
       <div className="mx-auto  container p-4">
         <div
           className={`${
-            context.theme == "dark" ? "  bg-black" : "bg-white "
+            context.theme === "dark" ? "  bg-black" : "bg-white "
           } mx-auto p-5 w-full max-w-sm `}
         >
           <div className="w-20 h-20 mx-auto rounded-full overflow-hidden ">
@@ -78,7 +78,7 @@ function Login() {
               <label>Email : </label>
               <div
                 className={`${
-                  context.theme == "dark"
+                  context.theme === "dark"
                     ? " bg-slate-400 border-slate-700"
                     : "bg-slate-200 "
                 } rounded  p-2`}
@@ -90,7 +90,9 @@ function Login() {
                   value={data.email}
                   onChange={handleOnChange}
                   className={`w-full rounded bg-transparent outline-none h-full ${
-                    context.theme == "dark" ? "placeholder:text-slate-600 " : ""
+                    context.theme === "dark"
+                      ? "placeholder:text-slate-600 "
+                      : ""
                   } rounded  `}
                 ></input>
               </div>
@@ -99,7 +101,7 @@ function Login() {
               <label>Password : </label>
               <div
                 className={`${
-                  context.theme == "dark"
+                  context.theme === "dark"
                     ? " bg-slate-400 border-slate-700"
                     : "bg-slate-200 "
                 } rounded  p-2 flex`}
@@ -111,7 +113,9 @@ function Login() {
                   value={data.password}
                   onChange={handleOnChange}
                   className={`w-full rounded bg-transparent outline-none h-full ${
-                    context.theme == "dark" ? "placeholder:text-slate-600 " : ""
+                    context.theme === "dark"
+                      ? "placeholder:text-slate-600 "
+                      : ""
                   } rounded  `}
                 ></input>
 
@@ -123,14 +127,19 @@ function Login() {
                 </div>
               </div>
               <Link
-               onClick={()=>{playSound()}}
+                onClick={() => {
+                  playSound();
+                }}
                 to="/forgot-password"
                 className="block w-fit ml-auto  hover:underline hover:text-red-600"
               >
                 Forgot Password?
               </Link>
             </div>
-            <button disabled={loginLoading} className=" disabled:cursor-not-allowed disabled:opacity-60 bg-red-500 hover:bg-red-700 text-white px-6 py-2 w-full max-w-[150px] rounded-full hover:scale-110 transition-all mx-auto block mt-4 ">
+            <button
+              disabled={loginLoading}
+              className=" disabled:cursor-not-allowed disabled:opacity-60 bg-red-500 hover:bg-red-700 text-white px-6 py-2 w-full max-w-[150px] rounded-full hover:scale-110 transition-all mx-auto block mt-4 "
+            >
               Login
             </button>
           </form>
@@ -138,7 +147,9 @@ function Login() {
           <p className="my-4 ">
             Don't Have Account ?
             <Link
-             onClick={()=>{playSound()}}
+              onClick={() => {
+                playSound();
+              }}
               to={"/sign-up"}
               className="hover:underline text-red-500 hover:text-red-700"
             >

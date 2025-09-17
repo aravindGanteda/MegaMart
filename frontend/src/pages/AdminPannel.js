@@ -25,7 +25,7 @@ function AdminPannel() {
     <div className="min-h-[calc(100vh-120px)] md:flex hidden">
       <aside
         className={`${
-          context.theme == "dark"
+          context.theme === "dark"
             ? " bg-[#1d1d1d] text-white border-slate-700"
             : " text-black bg-white "
         } min-h-full w-full max-w-60 customShadow `}
@@ -49,10 +49,12 @@ function AdminPannel() {
         <div>
           <nav className="grid p-4">
             <Link
-             onClick={()=>{playSound()}}
+              onClick={() => {
+                playSound();
+              }}
               to={"all-users"}
               className={`px-2 rounded py-1 ${
-                context.theme == "dark"
+                context.theme === "dark"
                   ? "  hover:bg-slate-500"
                   : " hover:bg-slate-200"
               }`}
@@ -60,10 +62,12 @@ function AdminPannel() {
               All Users
             </Link>
             <Link
-             onClick={()=>{playSound()}}
+              onClick={() => {
+                playSound();
+              }}
               to={"all-products"}
               className={`px-2 py-1 rounded ${
-                context.theme == "dark"
+                context.theme === "dark"
                   ? "  hover:bg-slate-500"
                   : " hover:bg-slate-200"
               }`}

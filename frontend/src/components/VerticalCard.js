@@ -24,7 +24,7 @@ const VerticalCard = ({ loading, data = [] }) => {
             return (
               <div
                 className={`w-full  min-w-[280px] md:min-w-[320px] max-w-[280px] md:max-w-[300px]  ${
-                  context.theme == "dark" ? "  border-black" : "border-white "
+                  context.theme === "dark" ? "  border-black" : "border-white "
                 } rounded-sm shadow overflow-hidden hover:scale-110`}
                 key={idx}
               >
@@ -46,7 +46,7 @@ const VerticalCard = ({ loading, data = [] }) => {
               <Link
                 to={`/product/${product?._id}`}
                 className={`w-full bg min-w-[280px] md:min-w-[290px] max-w-[270px] md:max-w-[290px]   ${
-                  context.theme == "dark" ? "  bg-black" : "bg-white "
+                  context.theme === "dark" ? "  bg-black" : "bg-white "
                 } rounded-md shadow-md overflow-hidden  hover:scale-110 transition-all hover:shadow-2xl`}
                 key={idx}
                 onClick={() => {
@@ -56,7 +56,9 @@ const VerticalCard = ({ loading, data = [] }) => {
               >
                 <div
                   className={`${
-                    context.theme == "dark" ? "  bg-slate-700" : "bg-slate-300 "
+                    context.theme === "dark"
+                      ? "  bg-slate-700"
+                      : "bg-slate-300 "
                   } h-48  p-4 min-w-[280px]  md:min-w-[145px]  flex justify-center items-center`}
                 >
                   <img

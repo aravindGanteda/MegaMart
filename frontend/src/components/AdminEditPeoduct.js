@@ -97,12 +97,12 @@ const AdminEditProduct = (props) => {
   return (
     <div
       className={`fixed top-0 left-0 right-0 bottom-0 ${
-        context.theme == "dark" ? " bg-slate-400" : "bg-slate-200"
+        context.theme==="dark" ? " bg-slate-400" : "bg-slate-200"
       } bg-opacity-50 w-full h-full flex justify-center items-center`}
     >
       <div
         className={`${
-          context.theme == "dark" ? " bg-black" : "bg-white"
+          context.theme==="dark" ? " bg-black" : "bg-white"
         } p-4 rounded w-full max-w-2xl h-full max-h-[80%] overflow-hidden`}
       >
         <div className="flex justify-between items-center pb-4">
@@ -130,7 +130,7 @@ const AdminEditProduct = (props) => {
             value={data.productName}
             onChange={handleOnChange}
             className={`p-2 outline-none ${
-              context.theme == "dark"
+              context.theme==="dark"
                 ? " bg-slate-400 border-slate-700"
                 : "bg-slate-200 "
             } border rounded`}
@@ -147,7 +147,7 @@ const AdminEditProduct = (props) => {
             value={data.brandName}
             onChange={handleOnChange}
             className={`p-2 outline-none ${
-              context.theme == "dark"
+              context.theme==="dark"
                 ? " bg-slate-400 border-slate-700"
                 : "bg-slate-200 "
             } border rounded`}
@@ -160,7 +160,7 @@ const AdminEditProduct = (props) => {
           <select
             value={data.category}
             className={`p-2 outline-none ${
-              context.theme == "dark"
+              context.theme==="dark"
                 ? " bg-slate-400 border-slate-700"
                 : "bg-slate-200 "
             } border rounded`}
@@ -186,7 +186,7 @@ const AdminEditProduct = (props) => {
           <label htmlFor="uploadImageInput">
             <div
               className={`p-2 ${
-                context.theme == "dark"
+                context.theme==="dark"
                   ? " bg-slate-400 border-slate-700"
                   : "bg-slate-200 "
               } border rounded h-32 w-full flex justify-center items-center cursor-pointer`}
@@ -259,7 +259,7 @@ const AdminEditProduct = (props) => {
             value={data.price}
             onChange={handleOnChange}
             className={`p-2 outline-none ${
-              context.theme == "dark"
+              context.theme==="dark"
                 ? " bg-slate-400 border-slate-700"
                 : "bg-slate-200 "
             } border rounded`}
@@ -277,7 +277,7 @@ const AdminEditProduct = (props) => {
             value={data.sellingPrice}
             onChange={handleOnChange}
             className={`p-2 outline-none ${
-              context.theme == "dark"
+              context.theme==="dark"
                 ? " bg-slate-400 border-slate-700"
                 : "bg-slate-200 "
             } border rounded`}
@@ -289,7 +289,7 @@ const AdminEditProduct = (props) => {
           </label>
           <textarea
             className={`h-28 outline-none  ${
-              context.theme == "dark"
+              context.theme==="dark"
                 ? " bg-slate-400 border-slate-700"
                 : "bg-slate-200 "
             } rounded border resize-none p-2`}

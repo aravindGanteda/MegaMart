@@ -43,7 +43,7 @@ const VerticalCardProduct = (props) => {
 
   const scrollRight = () => {
     // console.log("called");
-    playSound()
+    playSound();
     scrollElement.current.scrollLeft -= 300;
   };
   const scrollLeft = () => {
@@ -60,7 +60,7 @@ const VerticalCardProduct = (props) => {
       >
         <button
           className={`${
-            context.theme == "dark" ? "  bg-black" : " bg-white"
+            context.theme === "dark" ? "  bg-black" : " bg-white"
           } shadow-md rounded-full p-1 absolute left-0 text-lg hidden md:block `}
           onClick={scrollRight}
         >
@@ -68,7 +68,7 @@ const VerticalCardProduct = (props) => {
         </button>
         <button
           className={`${
-            context.theme == "dark" ? "  bg-black" : " bg-white"
+            context.theme === "dark" ? "  bg-black" : " bg-white"
           } shadow-md rounded-full p-1 absolute right-0 text-lg hidden md:block`}
           onClick={scrollLeft}
         >
@@ -80,7 +80,9 @@ const VerticalCardProduct = (props) => {
               return (
                 <div
                   className={`w-full  min-w-[280px] md:min-w-[320px] max-w-[280px] md:max-w-[320px]  ${
-                    context.theme == "dark" ? "  bg-slate-400" : " bg-slate-200"
+                    context.theme === "dark"
+                      ? "  bg-slate-400"
+                      : " bg-slate-200"
                   } rounded-sm shadow overflow-hidden`}
                   key={idx}
                 >
@@ -100,16 +102,18 @@ const VerticalCardProduct = (props) => {
           : data.map((product, idx) => {
               return (
                 <Link
-                onClick={()=>{playSound()}}
+                  onClick={() => {
+                    playSound();
+                  }}
                   to={`/product/${product?._id}`}
                   className={`w-full  min-w-[280px] md:min-w-[320px] max-w-[280px] md:max-w-[320px]  ${
-                    context.theme == "dark" ? "  bg-black" : " bg-white"
+                    context.theme === "dark" ? "  bg-black" : " bg-white"
                   } rounded-sm shadow-lg overflow-hidden  transition-all  hover:scale-110 hover:shadow-2xl `}
                   key={idx}
                 >
                   <div
                     className={`${
-                      context.theme == "dark"
+                      context.theme === "dark"
                         ? "  bg-slate-400"
                         : " bg-slate-200"
                     } h-48  p-4 min-w-[280px]  md:min-w-[145px]  flex justify-center items-center`}
@@ -147,8 +151,6 @@ const VerticalCardProduct = (props) => {
                 </Link>
               );
             })}
-
-        
       </div>
     </div>
   );

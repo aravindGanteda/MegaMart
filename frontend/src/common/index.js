@@ -1,4 +1,4 @@
-const backendDomain = "https://megamartapi.vercel.app";
+const backendDomain = "http://localhost:9000";
 
 const SummaryApi = {
   signUp: {

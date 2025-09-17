@@ -7,7 +7,7 @@ async function userSignUpController(req, res) {
     if (!email) {
       throw new Error("Plese Provide Email....");
     }
-    if (!password){
+    if (!password) {
       throw new Error("Plese Provide Password....");
     }
     const salt = bcrypt.genSaltSync(10);
@@ -34,8 +34,8 @@ async function userSignUpController(req, res) {
     });
   } catch (err) {
     messege = "";
-    if (err.code == 11000) {
-      message = "Email is already existed...."; 
+    if (err.code === 11000) {
+      message = "Email is already existed....";
     }
     res.json({
       message: message || err.message || err,

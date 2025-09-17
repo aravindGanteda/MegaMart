@@ -25,40 +25,46 @@ const AllProducts = () => {
 
   const context = useContext(Context);
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchAllProducts();
-  },[]);
+  }, []);
 
   return (
     <div>
-      <div className={`${
-          context.theme == "dark"
-            ? " bg-black"
-            : " bg-white "
-        } py-2 px-4 flex justify-between items-center rounded`}>
+      <div
+        className={`${
+          context.theme === "dark" ? " bg-black" : " bg-white "
+        } py-2 px-4 flex justify-between items-center rounded`}
+      >
         <h2 className="font-bold text-lg">All Prdoucts</h2>
         <button
           className={`border-2 py-1 px-4 border-red-600 text-red-500 hover:bg-red-600 hover:text-white transition-all rounded-full`}
           onClick={() => {
             playSound();
-            setOpenUploadProduct(true)}}
+            setOpenUploadProduct(true);
+          }}
         >
           Upload Product
         </button>
       </div>
       {/** all products */}
       <div className="flex flex-wrap item-center gap-5 py-4 h-[calc(100vh-190px)] overflow-y-scroll">
-        {
-          allProducts.map((product,idx)=>{
-            return (
-                <AdminProductCart  fetchdata = {fetchAllProducts} data = {product} key = {idx + "all Product"}/>
-            )
-          })
-        }
+        {allProducts.map((product, idx) => {
+          return (
+            <AdminProductCart
+              fetchdata={fetchAllProducts}
+              data={product}
+              key={idx + "all Product"}
+            />
+          );
+        })}
       </div>
       {/* upload product Componte*/}
       {openUploadProduct && (
-        <UploadProduct onClose={() => setOpenUploadProduct(false)} fetchdata = {fetchAllProducts}/>
+        <UploadProduct
+          onClose={() => setOpenUploadProduct(false)}
+          fetchdata={fetchAllProducts}
+        />
       )}
     </div>
   );

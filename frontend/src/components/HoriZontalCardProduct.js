@@ -9,7 +9,6 @@ import addToCart from "../helpers/addToCart";
 import Context from "../context";
 import playSound from "../common/playSound";
 
-
 const HoriZontalCardProduct = (props) => {
   const { category, heading } = props;
   const [data, setData] = useState([]);
@@ -65,7 +64,7 @@ const HoriZontalCardProduct = (props) => {
       >
         <button
           className={`disabled:opacity-60 disabled:cursor-not-allowed  ${
-            context.theme == "dark" ? "  bg-black" : " bg-white"
+            context.theme === "dark" ? "  bg-black" : " bg-white"
           } shadow-md rounded-full p-1 absolute left-0 text-lg hidden md:block`}
           onClick={scrollRight}
         >
@@ -73,7 +72,7 @@ const HoriZontalCardProduct = (props) => {
         </button>
         <button
           className={`${
-            context.theme == "dark" ? "  bg-black" : " bg-white"
+            context.theme === "dark" ? "  bg-black" : " bg-white"
           }  shadow-md rounded-full p-1 absolute right-0 text-lg hidden md:block`}
           onClick={scrollLeft}
         >
@@ -85,13 +84,15 @@ const HoriZontalCardProduct = (props) => {
               return (
                 <div
                   className={`w-full min-w-[280px] md:min-w-[320px] max-w-[280px] md:max-w-[320px] h-36 ${
-                    context.theme == "dark" ? "  bg-slate-400" : " bg-slate-200"
+                    context.theme === "dark"
+                      ? "  bg-slate-400"
+                      : " bg-slate-200"
                   }  rounded-sm  flex overflow-hidden  `}
                   key={idx}
                 >
                   <div
                     className={`${
-                      context.theme == "dark"
+                      context.theme === "dark"
                         ? "  bg-slate-400"
                         : " bg-slate-200"
                     } h-full p-4 min-w-[120px] md:min-w-[145px] animate-pulse`}
@@ -114,13 +115,13 @@ const HoriZontalCardProduct = (props) => {
                   // onClick={()=>{playSound()}}
                   to={`/product/${product?._id}`}
                   className={`w-full min-w-[280px] md:min-w-[320px] max-w-[280px] md:max-w-[320px] h-36 ${
-                    context.theme == "dark" ? "  bg-black" : " bg-white"
+                    context.theme === "dark" ? "  bg-black" : " bg-white"
                   } rounded-sm shadow flex overflow-hidden hover:scale-110  transition-all hover:shadow-2xl`}
                   key={idx}
                 >
                   <div
                     className={` ${
-                      context.theme == "dark"
+                      context.theme === "dark"
                         ? "  bg-slate-500"
                         : " bg-slate-200"
                     } h-full p-4 min-w-[120px] md:min-w-[145px]`}

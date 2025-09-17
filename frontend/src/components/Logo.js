@@ -8,7 +8,7 @@ function Logo(props) {
       width={props.w}
       height={props.h}
       viewBox="0 0 370.16679528778167 155.08501865265873"
-      className={`css-1j8o68f ${context.theme == "dark" ? "invert" : ""}`}
+      className={`css-1j8o68f ${context.theme === "dark" ? "invert" : ""}`}
     >
       <defs id="SvgjsDefs1029"></defs>
       <g

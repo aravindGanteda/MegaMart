@@ -1,10 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import productCategory from "../helpers/productCategory";
 import toast from "react-hot-toast";
 import VerticalCard from "../components/VerticalCard";
 import { RxReload } from "react-icons/rx";
-import diaplyINRCurrency from "../helpers/displayCurrency";
 import SummaryApi from "../common";
 import Context from "../context";
 
@@ -19,14 +18,13 @@ const CategoryProduct = () => {
 
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [filterCategoryList, setFilterCategoryList] = useState([]);
 
   const [selectCategory, setSelectCategory] = useState(
     categories.reduce((acc, category) => ({ ...acc, [category]: true }), {})
   );
 
   const handleSelectCategory = (e) => {
-    const { name, value, checked } = e.target;
+    const { value, checked } = e.target;
 
     setSelectCategory((prev) => {
       return { ...prev, [value]: checked };
@@ -64,7 +62,7 @@ const CategoryProduct = () => {
   const handleSortOnChange = (e) => {
     const { value } = e.target;
     setSortBy(value);
-    if (sortBy == "acc") {
+    if (sortBy === "acc") {
       setData((prev) => prev.sort((a, b) => a.sellingPrice - b.sellingPrice));
     } else {
       setData((prev) => prev.sort((a, b) => b.sellingPrice - a.sellingPrice));
@@ -74,8 +72,6 @@ const CategoryProduct = () => {
   // console.log(sortBy);
 
   useEffect(() => {
-    // fetchData();
-
     const arrayOfCategory = Object.keys(selectCategory).filter(
       (categoryName) => {
         // console.log(categoryName)
@@ -99,14 +95,14 @@ const CategoryProduct = () => {
         {/* Left Side */}
         <div
           className={`${
-            context.theme == "dark" ? " bg-black" : "bg-white"
+            context.theme === "dark" ? " bg-black" : "bg-white"
           } h-fit p-2  overflow-y-scroll`}
         >
           {/* SORT BY  */}
           <div className="">
             <h2
               className={`text-base border-b pb-1 ${
-                context.theme == "dark"
+                context.theme === "dark"
                   ? "  border-slate-700"
                   : "border-slate-300 "
               } uppercase font-medium text-slate-500`}
@@ -148,7 +144,7 @@ const CategoryProduct = () => {
           <div className="">
             <h2
               className={`text-base border-b pb-1 ${
-                context.theme == "dark"
+                context.theme === "dark"
                   ? "  border-slate-700"
                   : "border-slate-300 "
               } uppercase font-medium text-slate-500`}
@@ -194,6 +190,7 @@ const CategoryProduct = () => {
           {data.length === 0 && !loading && (
             <div>
               <img
+                alt="No Items Found..."
                 src={
                   "https://cdni.iconscout.com/illustration/premium/thumb/sorry-item-not-found-illustration-download-in-svg-png-gif-file-formats--available-product-tokostore-pack-e-commerce-shopping-illustrations-2809510.png"
                 }

@@ -75,7 +75,7 @@ function SignUp() {
     playSound();
     setVerifyLoading(true);
     try {
-      if (code == verifycode) {
+      if (code === verifycode) {
         const res = await fetch(SummaryApi.signUp.url, {
           method: SummaryApi.signIn.method,
           // credentials: "include",
@@ -142,7 +142,7 @@ function SignUp() {
         {showVerification ? (
           <div
             className={` ${
-              context.theme == "dark" ? "  bg-black" : "bg-white "
+              context.theme === "dark" ? "  bg-black" : "bg-white "
             } mx-auto p-5 w-full max-w-sm rounded mt-20`}
           >
             <img src={emailVeify} alt="Email Icon" className="h-16  mx-auto" />
@@ -159,7 +159,7 @@ function SignUp() {
               <div className="">
                 <div
                   className={`${
-                    context.theme == "dark"
+                    context.theme === "dark"
                       ? " bg-slate-400 border-slate-700"
                       : "bg-slate-200 "
                   } rounded  p-2`}
@@ -173,7 +173,7 @@ function SignUp() {
                     onChange={handleOnChangeVerify}
                     required
                     className={`w-full rounded bg-transparent outline-none h-full ${
-                      context.theme == "dark"
+                      context.theme === "dark"
                         ? "placeholder:text-slate-600 "
                         : ""
                     } rounded  `}
@@ -184,7 +184,7 @@ function SignUp() {
                 disabled={verifyLoading}
                 onClick={handleSubmit}
                 className={` disabled:opacity-60 disabled:cursor-not-allowed rounded border-2 border-red-500 ${
-                  context.theme == "dark"
+                  context.theme === "dark"
                     ? "  bg-red-500 transition-all duration-1000 text-white hover:bg-black hover:text-red-500 "
                     : "bg-red-500 transition-all duration-1000 text-white hover:bg-white hover:text-red-500  "
                 } border p-1 w-full mt-4 text-xl font-medium `}
@@ -196,7 +196,7 @@ function SignUp() {
         ) : (
           <div
             className={` ${
-              context.theme == "dark" ? "  bg-black" : "bg-white "
+              context.theme === "dark" ? "  bg-black" : "bg-white "
             } mx-auto p-5 w-full max-w-sm  `}
           >
             <div className="w-20 h-20 mx-auto relative overflow-hidden rounded-full ">
@@ -207,7 +207,7 @@ function SignUp() {
                 <label>
                   <div
                     className={`text-xs bg-opacity-80 ${
-                      context.theme == "dark"
+                      context.theme === "dark"
                         ? "  bg-slate-400"
                         : "bg-slate-200"
                     }  pb-4 pt-2 cursor-pointer text-center absolute bottom-0 w-full`}
@@ -228,7 +228,7 @@ function SignUp() {
                 <label>UserName : </label>
                 <div
                   className={`${
-                    context.theme == "dark"
+                    context.theme === "dark"
                       ? " bg-slate-400 border-slate-700"
                       : "bg-slate-200 "
                   } rounded  p-2`}
@@ -241,7 +241,7 @@ function SignUp() {
                     onChange={handleOnChange}
                     required
                     className={`w-full rounded bg-transparent outline-none h-full ${
-                      context.theme == "dark"
+                      context.theme === "dark"
                         ? "placeholder:text-slate-600 "
                         : ""
                     } rounded  `}
@@ -253,7 +253,7 @@ function SignUp() {
                 <label>Email : </label>
                 <div
                   className={`${
-                    context.theme == "dark"
+                    context.theme === "dark"
                       ? " bg-slate-400 border-slate-700"
                       : "bg-slate-200 "
                   } rounded  p-2`}
@@ -266,7 +266,7 @@ function SignUp() {
                     onChange={handleOnChange}
                     required
                     className={`w-full rounded bg-transparent outline-none h-full ${
-                      context.theme == "dark"
+                      context.theme === "dark"
                         ? "placeholder:text-slate-600 "
                         : ""
                     } rounded  `}
@@ -277,7 +277,7 @@ function SignUp() {
                 <label>Password : </label>
                 <div
                   className={`${
-                    context.theme == "dark"
+                    context.theme === "dark"
                       ? " bg-slate-400 border-slate-700"
                       : "bg-slate-200 "
                   } rounded  p-2 flex`}
@@ -290,7 +290,7 @@ function SignUp() {
                     onChange={handleOnChange}
                     required
                     className={`w-full rounded bg-transparent outline-none h-full ${
-                      context.theme == "dark"
+                      context.theme === "dark"
                         ? "placeholder:text-slate-600 "
                         : " "
                     } rounded  `}
@@ -309,7 +309,7 @@ function SignUp() {
                 <label>Confirm Password : </label>
                 <div
                   className={`${
-                    context.theme == "dark"
+                    context.theme === "dark"
                       ? " bg-slate-400 border-slate-700"
                       : "bg-slate-200 "
                   } rounded  p-2 flex`}
@@ -322,7 +322,7 @@ function SignUp() {
                     required
                     onChange={handleOnChange}
                     className={`w-full rounded bg-transparent outline-none h-full ${
-                      context.theme == "dark"
+                      context.theme === "dark"
                         ? "placeholder:text-slate-600 "
                         : ""
                     } rounded  `}

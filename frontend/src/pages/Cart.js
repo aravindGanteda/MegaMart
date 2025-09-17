@@ -153,14 +153,14 @@ const Cart = () => {
                 <div
                   key={product?._id}
                   className={`w-full ${
-                    context.theme == "dark"
+                    context.theme === "dark"
                       ? " bg-black border-slate-700"
                       : "bg-white border-slate-300"
                   }  h-32 my-2 border  rounded grid grid-cols-[128px,1fr] shadow-md hover:scale-105 hover:shadow-lg transition-all`}
                 >
                   <div
                     className={`w-32 rounded-md h-32 ${
-                      context.theme == "dark"
+                      context.theme === "dark"
                         ? " bg-slate-400"
                         : "bg-slate-200 "
                     } overflow-hidden `}
@@ -228,7 +228,7 @@ const Cart = () => {
           {loading ? (
             <div
               className={`h-36 ${
-                context.theme == "dark"
+                context.theme === "dark"
                   ? " bg-slate-400 border-slate-700"
                   : "bg-slate-200 border-slate-300 "
               }  border rounded animate-pulse`}
@@ -239,7 +239,7 @@ const Cart = () => {
             data.length !== 0 && (
               <div
                 className={`h-36 rounded-md border ${
-                  context.theme == "dark"
+                  context.theme === "dark"
                     ? " bg-black border-slate-700"
                     : "bg-white border-slate-300 "
                 } shadow-md`}

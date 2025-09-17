@@ -12,7 +12,7 @@ const AdminProductCart = (props) => {
   return (
     <div
       className={`${
-        context.theme == "dark" ? " bg-black border-slate-500" : " bg-white "
+        context.theme === "dark" ? " bg-black border-slate-500" : " bg-white "
       } p-4 rounded-xl border`}
     >
       <div className="w-40 ">
@@ -34,7 +34,7 @@ const AdminProductCart = (props) => {
 
           <div
             className={`w-fit ml-auto p-2 rounded-full hover:text-white  cursor-pointer ${
-              context.theme == "dark"
+              context.theme === "dark"
                 ? " bg-green-200 hover:bg-green-500 text-black"
                 : "bg-green-200 hover:bg-green-500 text-white"
             }`}

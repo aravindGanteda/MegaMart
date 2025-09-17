@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import fetchCategoryWiseProduct from "../helpers/fetchCategoryWiseProduct";
 import toast from "react-hot-toast";
 import diaplyINRCurrency from "../helpers/displayCurrency";
@@ -16,7 +16,7 @@ const CategoryWiseProductDisplay = (props) => {
 
   const { fetchUserAddToCart, theme } = useContext(Context);
 
-  const [handleLoading,setHandleLoading] = useState(false);
+  const [handleLoading, setHandleLoading] = useState(false);
   const handleAddToCart = async (e, id) => {
     setHandleLoading(true);
     await addToCart(e, id);
@@ -69,7 +69,7 @@ const CategoryWiseProductDisplay = (props) => {
                 <Link
                   to={`/product/${product?._id}`}
                   className={`w-full min-w-[280px] md:min-w-[320px] max-w-[280px] md:max-w-[320px] ${
-                    theme == "dark" ? " bg-black" : "bg-white "
+                    theme === "dark" ? " bg-black" : "bg-white "
                   } rounded-md shadow-md  hover:scale-110 transition-all hover:shadow-2xl`}
                   key={idx}
                   onClick={() => {
@@ -78,7 +78,7 @@ const CategoryWiseProductDisplay = (props) => {
                 >
                   <div
                     className={`${
-                      theme == "dark"
+                      theme === "dark"
                         ? " bg-slate-400 border-slate-700"
                         : "bg-slate-200 "
                     }  h-48  p-4 min-w-[280px]  md:min-w-[145px]  flex justify-center items-center`}
@@ -105,9 +105,7 @@ const CategoryWiseProductDisplay = (props) => {
                     </div>
                     <button
                       className=" text-sm bg-red-600 hover:bg-red-600 text-white px-2 py-0.5 rounded-full disabled:opacity-60 disabled:cursor-not-allowed "
-                      
-                      disabled = {handleLoading}
-
+                      disabled={handleLoading}
                       onClick={(e) => {
                         playSound();
                         handleAddToCart(e, product?._id);

@@ -6,7 +6,7 @@ function Footer() {
   return (
     <footer
       className={`${
-        context.theme == "dark"
+        context.theme === "dark"
           ? " bg-[#1d1d1d] text-white"
           : " text-black bg-white"
       }`}

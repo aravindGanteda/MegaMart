@@ -37,12 +37,10 @@ const AllUsers = () => {
   }, []);
 
   return (
-    <div
-      className={`pb-4`}
-    >
+    <div className={`pb-4`}>
       <table
         className={`transition-all duration-1000  w-full border-2 border-red-500  ${
-          context.theme == "dark"
+          context.theme === "dark"
             ? " text-white bg-black"
             : " text-black bg-white"
         }`}
@@ -50,7 +48,7 @@ const AllUsers = () => {
         <thead>
           <tr
             className={`border-2 text-start transition-all duration-1000 border-red-500 ${
-              context.theme == "dark"
+              context.theme === "dark"
                 ? " text-black bg-white"
                 : " text-white bg-black"
             } `}
@@ -65,7 +63,7 @@ const AllUsers = () => {
         </thead>
         <tbody
           className={`transition-all duration-1000 ${
-            context.theme == "dark"
+            context.theme === "dark"
               ? " text-white bg-black"
               : " text-black bg-white"
           }`}
@@ -83,7 +81,7 @@ const AllUsers = () => {
                 <td className="border-2 border-red-500">
                   <button
                     className={`${
-                      context.theme == "dark"
+                      context.theme === "dark"
                         ? " bg-black hover:bg-green-500"
                         : "bg-white hover:bg-green-500"
                     }  hover:text-white p-2 rounded-full cursor-pointer`}

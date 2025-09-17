@@ -42,7 +42,9 @@ const CategoryList = () => {
               return (
                 <div
                   className={`h-14 w-14 md:h-16 md:w-16 rounded-full overflow-hidden  animate-pulse ${
-                    context.theme == "dark" ? "  bg-slate-600" : " bg-slate-200"
+                    context.theme === "dark"
+                      ? "  bg-slate-600"
+                      : " bg-slate-200"
                   }`}
                   key={"category" + idx}
                 ></div>
@@ -57,7 +59,7 @@ const CategoryList = () => {
                 >
                   <div
                     className={`${
-                      context.theme == "dark"
+                      context.theme === "dark"
                         ? "  bg-slate-400"
                         : " bg-slate-200"
                     } w-14 h-14 md:w-16 md:h-16 flex rounded-full  overflow-hidden justify-center p-4  items-center`}

@@ -49,7 +49,7 @@ const BannerProduct = () => {
     <div className="container mx-auto px-4 rounded ">
       <div
         className={`h-60 md:h-72 w-full  ${
-          context.theme == "dark"
+          context.theme === "dark"
             ? "  bg-[rgb(35, 37, 37)]"
             : " bg-[rgb(236, 243, 241)]"
         } relative overflow-hidden`}
@@ -58,7 +58,7 @@ const BannerProduct = () => {
           <div className=" md:flex justify-between w-full text-2xl hidden">
             <button
               className={`${
-                context.theme == "dark" ? " bg-black" : " bg-white"
+                context.theme === "dark" ? " bg-black" : " bg-white"
               } shadow-md rounded-full p-1`}
               onClick={() => {
                 playSound();
@@ -69,7 +69,7 @@ const BannerProduct = () => {
             </button>
             <button
               className={`${
-                context.theme == "dark" ? " bg-black" : " bg-white"
+                context.theme === "dark" ? " bg-black" : " bg-white"
               } shadow-md rounded-full p-1`}
               onClick={() => {
                 playSound();
